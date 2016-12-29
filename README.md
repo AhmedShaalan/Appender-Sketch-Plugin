@@ -1,5 +1,5 @@
 # Appender
-Allows you to append text to multiple text layers at ones. Like a boss.
+Allows you to append text to multiple text layers at once. Like a boss.
 
 ## Preview
 ![appender-preview](https://cloud.githubusercontent.com/assets/13232193/21555686/090b30a0-ce23-11e6-8660-99fa99fd1030.gif)
