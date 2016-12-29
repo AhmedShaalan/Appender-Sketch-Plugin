@@ -2,8 +2,7 @@
 Allows you to append text to multiple text layers at ones. Like a boss.
 
 ## Preview
-
-## Usage
+![appender-preview](https://cloud.githubusercontent.com/assets/13232193/21555686/090b30a0-ce23-11e6-8660-99fa99fd1030.gif)
 
 ## Installation
 1. Download [the latest ZIP file][1] of this plugin.
