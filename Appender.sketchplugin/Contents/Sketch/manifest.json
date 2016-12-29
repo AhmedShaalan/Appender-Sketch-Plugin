@@ -1,0 +1,36 @@
+{
+    "name" : "Appender",
+    "description" : "Simple Sketch app plugin to batch append text to text layers.",
+    "authorEmail" : "ahmed_shaalan@icloud.com",
+    "author" : "Ahmed Shaalan",
+    "homepage": "https://github.com/ahmedshaalan/Appender-Sketch-Plugin",
+    "version" : "1.0",
+    "identifier" : "com.shaalan.appender",
+    "compatibleVersion": "41.2",
+    "bundleVersion": 1,
+
+    "commands" : [
+    {
+      "script" : "append_text.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Append...",
+      "identifier" : "append"
+    },
+    {
+      "script" : "append_text.js",
+      "handler" : "appendAgain",
+      "shortcut" : "",
+      "name" : "Append Again",
+      "identifier" : "appendAgain"
+    }
+  ],
+
+  "menu": {
+      "title": "Appender",
+      "items": [
+        "append",
+        "appendAgain"
+      ]
+    }
+  }
