@@ -4,7 +4,7 @@
     "authorEmail" : "ahmed_shaalan@icloud.com",
     "author" : "Ahmed Shaalan",
     "homepage": "https://github.com/ahmedshaalan/Appender-Sketch-Plugin",
-    "version" : "1.0",
+    "version" : "1.0.1",
     "identifier" : "com.shaalan.appender",
     "compatibleVersion": "41.2",
     "bundleVersion": 1,

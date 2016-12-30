@@ -14,6 +14,14 @@ function onRun(context) {
   // get selection
   var selection = context.selection
 
+  // check if the user is editing text layer
+  // always layer number 0 will be the one in edit mode
+  var layer = selection[0]
+  if (layer.class() == MSTextLayer && layer.isEditingText()) {
+    [app displayDialog:"I can't append text while you are in edit mode :s" withTitle:"Appender"]
+    return
+  }
+
   // number of layers selected
   var numOfLayers = selection.count()
 
