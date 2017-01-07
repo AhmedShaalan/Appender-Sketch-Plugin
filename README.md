@@ -21,7 +21,7 @@ If you discover any issues, please [open an issue][2].
 And ping me on [twitter][3] for questions and [follow me][3] for updates.
 
 ## License
-This software is released under Apache License, see LICENSE.
+This software is released under Apache License Version 2.0, see LICENSE.
 
 [1]: https://github.com/ahmedshaalan/appender-sketch-plugin/archive/master.zip
 [2]: https://github.com/ahmedshaalan/appender-sketch-plugin/issues

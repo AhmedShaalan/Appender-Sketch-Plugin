@@ -14,14 +14,6 @@ function onRun(context) {
   // get selection
   var selection = context.selection
 
-  // check if the user is editing text layer
-  // always layer number 0 will be the one in edit mode
-  var layer = selection[0]
-  if (layer.class() == MSTextLayer && layer.isEditingText()) {
-    [app displayDialog:"I can't append text while you are in edit mode :s" withTitle:"Appender"]
-    return
-  }
-
   // number of layers selected
   var numOfLayers = selection.count()
 
@@ -31,8 +23,16 @@ function onRun(context) {
     return
   }
 
+  // check if the user is editing text layer
+  // always layer number 0 will be the one in edit mode
+  var layer = selection[0]
+  if (layer.class() == MSTextLayer && layer.isEditingText()) {
+    [app displayDialog:"I can't append text while you are in edit mode :s" withTitle:"Appender"]
+    return
+  }
+
   // get user input
-  var userInput = getUserInput(numOfLayers)
+  var userInput = getUserInput(sketch)
 
   // get pressed button
   var userPressedButton = userInput[0] == 1000 ? "Append" : "Cancel"
@@ -68,25 +68,32 @@ function appendAgain(context) {
   // get sketch context
   var sketch = context.api()
 
+  // get document & selection
+  var document = context.document
+  var selection = context.selection
+
+  // number of layers selected
+  var numOfLayers = selection.count()
+
+  // check if some layers selected
+  if (!numOfLayers) {
+    [app displayDialog:"Select me some text layers, Please :/" withTitle:"Appender - Append Again"]
+    
+    return
+  }
+
   // get previous user input
   var previousUserInput = sketch.settingForKey("userTextInput")
 
-  // check if its not null
-  if (previousUserInput != null) {
-
-    // get document & selection
-    var document = context.document
-    var selection = context.selection
-
-    // number of layers selected
-    var numOfLayers = selection.count()
-
-    // append text
-    doTheThing (selection, numOfLayers, previousUserInput)
-
-  }else {
+  // check if its null
+  if (previousUserInput == null) {
     [app displayDialog:"I don't remember that you asked me to append text before :-|" withTitle:"Appender"]
+    
+    return
   }
+
+  // append text
+  doTheThing (selection, numOfLayers, previousUserInput)
 }
 
 
@@ -117,7 +124,7 @@ function doTheThing (selection, numOfLayers, userTextInput)
 
 
 // show dialog to get user input
-function getUserInput(numOfLayers){
+function getUserInput(sketch){
 
   // create new dialog
   var alert = COSAlertWindow.new()
@@ -128,7 +135,7 @@ function getUserInput(numOfLayers){
 
   // create text field and its lable
   alert.addTextLabelWithValue("Text to append:")
-  alert.addTextFieldWithValue("")
+  alert.addTextFieldWithValue(sketch.settingForKey("userTextInput"))
 
   // set it as first responder
   var textField = alert.viewAtIndex(1)
